@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MuscleForge - 您的专业健身训练助手</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 0;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero .subtitle {
+            font-size: 24px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .hero .tagline {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section {
+            padding: 80px 20px;
+            background-color: #fff;
+        }
+        
+        .section-alt {
+            background-color: #f8f9fa;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid #007AFF;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+        
+        .feature-card p {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .highlight-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .highlight-item h4 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .highlight-item p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #007AFF;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 18px;
+            color: #666;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            border-left: 4px solid #007AFF;
+        }
+        
+        .testimonial-text {
+            font-size: 18px;
+            color: #333;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: #666;
+        }
+        
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .footer p {
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+        
+        .footer-links {
+            margin-top: 30px;
+        }
+        
+        .footer-links a {
+            color: #007AFF;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .email-link {
+            color: #007AFF;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .email-link:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero .subtitle {
+                font-size: 20px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .highlights {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .badge {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .lang-btn {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .lang-btn:hover {
+            background-color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .lang-btn.active {
+            background-color: #007AFF;
+            color: white;
+            border-color: #007AFF;
+        }
+        
+        @media (max-width: 768px) {
+            .language-switcher {
+                top: 10px;
+                right: 10px;
+            }
+            
+            .lang-btn {
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn active" onclick="switchLanguage('zh')" id="lang-zh">中文</button>
+        <button class="lang-btn" onclick="switchLanguage('en')" id="lang-en">English</button>
+    </div>
+    
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>MuscleForge</h1>
+            <p class="subtitle">您的专业健身训练助手</p>
+            <p class="tagline">科学规划训练 · 精准记录数据 · 追踪进步轨迹</p>
+        </div>
+    </div>
+    
+    <!-- Features Section -->
+    <div class="section">
+        <div class="container">
+            <h2 class="section-title">核心功能</h2>
+            <p class="section-subtitle">无论您是健身新手还是资深训练者，MuscleForge 都能帮助您科学规划训练、精准记录数据、追踪进步轨迹</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <h3>训练计划管理</h3>
+                    <p>创建和编辑个性化训练计划，支持多训练日安排，让您的训练更有条理、更科学。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>详细训练记录</h3>
+                    <p>记录每次训练的组数、重量、次数和训练感受，完整追踪每一次训练的细节。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎥</div>
+                    <h3>视频录制与回放</h3>
+                    <p>录制训练动作视频，标记黄金时刻，回放精彩瞬间，建立专属训练视频库。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⏱️</div>
+                    <h3>智能休息计时器</h3>
+                    <p>自动计时，确保训练节奏，支持心率恢复评估，让训练更高效。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>进度追踪</h3>
+                    <p>可视化图表展示训练数据，清晰了解进步情况，让每一次进步都一目了然。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>训练历史</h3>
+                    <p>完整记录所有训练历史，随时回顾和对比，见证自己的成长历程。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">❤️</div>
+                    <h3>心率监测</h3>
+                    <p>实时监测心率（支持 Apple Watch 和 AirPods Pro 3），评估训练强度，科学训练。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🏥</div>
+                    <h3>HealthKit 同步</h3>
+                    <p>自动同步训练数据到苹果健康 App，统一管理健康数据，打造完整健康生态。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">☁️</div>
+                    <h3>iCloud 同步</h3>
+                    <p>通过 iCloud 和 CloudKit 实现多设备数据同步，随时随地访问训练记录。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Highlights Section -->
+    <div class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">特色亮点</h2>
+            <p class="section-subtitle">这些独特功能让 MuscleForge 成为您最可靠的训练伙伴</p>
+            
+            <div class="highlights">
+                <div class="highlight-item">
+                    <h4>⭐ 黄金时刻</h4>
+                    <p>在视频回放中标记精彩动作，建立专属训练视频库，记录每一个高光时刻</p>
+                </div>
+                
+                <div class="highlight-item">
+                    <h4>🔥 智能卡路里计算</h4>
+                    <p>基于心率、年龄、性别等数据，精确计算训练消耗，科学管理能量</p>
+                </div>
+                
+                <div class="highlight-item">
+                    <h4>💓 心率恢复评估</h4>
+                    <p>通过心率恢复速度评估训练强度和身体状态，优化训练计划</p>
+                </div>
+                
+                <div class="highlight-item">
+                    <h4>📊 数据可视化</h4>
+                    <p>直观的图表展示，让进步一目了然，数据驱动训练决策</p>
+                </div>
+                
+                <div class="highlight-item">
+                    <h4>🔄 多设备同步</h4>
+                    <p>训练数据云端同步，手机、iPad 无缝切换，训练不受设备限制</p>
+                </div>
+                
+                <div class="highlight-item">
+                    <h4>🌍 多语言支持</h4>
+                    <p>支持联合国官方语言（中文、英语、西班牙语、法语、俄语、阿拉伯语）</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Stats Section -->
+    <div class="section">
+        <div class="container">
+            <h2 class="section-title">为什么选择 MuscleForge？</h2>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">数据隐私保护</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">第三方追踪</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">训练计划数量</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">语言支持</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Testimonials Section -->
+    <div class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">用户评价</h2>
+            
+            <div class="testimonial">
+                <p class="testimonial-text">"MuscleForge 彻底改变了我的训练方式。视频录制和黄金时刻功能让我能够回顾自己的动作，不断改进。数据可视化让我清楚地看到自己的进步，非常有成就感！"</p>
+                <p class="testimonial-author">— 资深健身爱好者</p>
+            </div>
+            
+            <div class="testimonial">
+                <p class="testimonial-text">"作为健身新手，训练计划管理功能帮了我大忙。我可以提前规划好一周的训练，然后按照计划执行。心率监测功能也让我知道自己的训练强度是否合适。"</p>
+                <p class="testimonial-author">— 健身初学者</p>
+            </div>
+            
+            <div class="testimonial">
+                <p class="testimonial-text">"iCloud 同步功能太棒了！我在 iPhone 上记录训练，然后在 iPad 上查看详细的数据分析。多设备无缝切换，非常方便。而且完全不用担心隐私问题，所有数据都在本地。"</p>
+                <p class="testimonial-author">— 专业训练者</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- CTA Section -->
+    <div class="section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-align: center;">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">开始您的科学训练之旅</h2>
+            <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.9);">
+                无论您是追求增肌、减脂还是提升力量，MuscleForge 都是您最可靠的训练伙伴
+            </p>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-content">
+            <h3>MuscleForge</h3>
+            <p>您的专业健身训练助手</p>
+            <p>科学规划训练 · 精准记录数据 · 追踪进步轨迹</p>
+            
+            <div class="footer-links">
+                <a href="PrivacyPolicy.html">隐私政策</a>
+                <a href="TechnicalSupport.html">技术支持</a>
+                <a href="mailto:977510991@qq.com">联系我们</a>
+            </div>
+            
+            <p style="margin-top: 40px; color: #999; font-size: 14px;">
+                © 2025 MuscleForge. 保留所有权利。
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        // 翻译内容
+        const translations = {
+            zh: {
+                title: "MuscleForge - 您的专业健身训练助手",
+                heroSubtitle: "您的专业健身训练助手",
+                heroTagline: "科学规划训练 · 精准记录数据 · 追踪进步轨迹",
+                featuresTitle: "核心功能",
+                featuresSubtitle: "无论您是健身新手还是资深训练者，MuscleForge 都能帮助您科学规划训练、精准记录数据、追踪进步轨迹",
+                feature1Title: "训练计划管理",
+                feature1Desc: "创建和编辑个性化训练计划，支持多训练日安排，让您的训练更有条理、更科学。",
+                feature2Title: "详细训练记录",
+                feature2Desc: "记录每次训练的组数、重量、次数和训练感受，完整追踪每一次训练的细节。",
+                feature3Title: "视频录制与回放",
+                feature3Desc: "录制训练动作视频，标记黄金时刻，回放精彩瞬间，建立专属训练视频库。",
+                feature4Title: "智能休息计时器",
+                feature4Desc: "自动计时，确保训练节奏，支持心率恢复评估，让训练更高效。",
+                feature5Title: "进度追踪",
+                feature5Desc: "可视化图表展示训练数据，清晰了解进步情况，让每一次进步都一目了然。",
+                feature6Title: "训练历史",
+                feature6Desc: "完整记录所有训练历史，随时回顾和对比，见证自己的成长历程。",
+                feature7Title: "心率监测",
+                feature7Desc: "实时监测心率（支持 Apple Watch 和 AirPods Pro 3），评估训练强度，科学训练。",
+                feature8Title: "HealthKit 同步",
+                feature8Desc: "自动同步训练数据到苹果健康 App，统一管理健康数据，打造完整健康生态。",
+                feature9Title: "iCloud 同步",
+                feature9Desc: "通过 iCloud 和 CloudKit 实现多设备数据同步，随时随地访问训练记录。",
+                highlightsTitle: "特色亮点",
+                highlightsSubtitle: "这些独特功能让 MuscleForge 成为您最可靠的训练伙伴",
+                highlight1Title: "⭐ 黄金时刻",
+                highlight1Desc: "在视频回放中标记精彩动作，建立专属训练视频库，记录每一个高光时刻",
+                highlight2Title: "🔥 智能卡路里计算",
+                highlight2Desc: "基于心率、年龄、性别等数据，精确计算训练消耗，科学管理能量",
+                highlight3Title: "💓 心率恢复评估",
+                highlight3Desc: "通过心率恢复速度评估训练强度和身体状态，优化训练计划",
+                highlight4Title: "📊 数据可视化",
+                highlight4Desc: "直观的图表展示，让进步一目了然，数据驱动训练决策",
+                highlight5Title: "🔄 多设备同步",
+                highlight5Desc: "训练数据云端同步，手机、iPad 无缝切换，训练不受设备限制",
+                highlight6Title: "🌍 多语言支持",
+                highlight6Desc: "支持联合国官方语言（中文、英语、西班牙语、法语、俄语、阿拉伯语）",
+                statsTitle: "为什么选择 MuscleForge？",
+                stat1Label: "数据隐私保护",
+                stat2Label: "第三方追踪",
+                stat3Label: "训练计划数量",
+                stat4Label: "语言支持",
+                testimonialsTitle: "用户评价",
+                testimonial1Text: "\"MuscleForge 彻底改变了我的训练方式。视频录制和黄金时刻功能让我能够回顾自己的动作，不断改进。数据可视化让我清楚地看到自己的进步，非常有成就感！\"",
+                testimonial1Author: "— 资深健身爱好者",
+                testimonial2Text: "\"作为健身新手，训练计划管理功能帮了我大忙。我可以提前规划好一周的训练，然后按照计划执行。心率监测功能也让我知道自己的训练强度是否合适。\"",
+                testimonial2Author: "— 健身初学者",
+                testimonial3Text: "\"iCloud 同步功能太棒了！我在 iPhone 上记录训练，然后在 iPad 上查看详细的数据分析。多设备无缝切换，非常方便。而且完全不用担心隐私问题，所有数据都在本地。\"",
+                testimonial3Author: "— 专业训练者",
+                ctaTitle: "开始您的科学训练之旅",
+                ctaSubtitle: "无论您是追求增肌、减脂还是提升力量，MuscleForge 都是您最可靠的训练伙伴",
+                footerTagline: "您的专业健身训练助手",
+                footerSubtitle: "科学规划训练 · 精准记录数据 · 追踪进步轨迹",
+                footerPrivacy: "隐私政策",
+                footerSupport: "技术支持",
+                footerContact: "联系我们",
+                footerCopyright: "© 2025 MuscleForge. 保留所有权利。"
+            },
+            en: {
+                title: "MuscleForge - Your Professional Fitness Training Assistant",
+                heroSubtitle: "Your Professional Fitness Training Assistant",
+                heroTagline: "Scientific Training Planning · Accurate Data Recording · Progress Tracking",
+                ctaButton: "Download Now",
+                featuresTitle: "Core Features",
+                featuresSubtitle: "Whether you're a fitness beginner or an experienced trainer, MuscleForge helps you plan scientifically, record accurately, and track your progress",
+                feature1Title: "Training Plan Management",
+                feature1Desc: "Create and edit personalized training plans with multi-day scheduling, making your training more organized and scientific.",
+                feature2Title: "Detailed Training Records",
+                feature2Desc: "Record sets, weights, reps, and training feelings for each session, tracking every detail of your workouts.",
+                feature3Title: "Video Recording & Playback",
+                feature3Desc: "Record training action videos, mark golden moments, replay highlights, and build your exclusive training video library.",
+                feature4Title: "Smart Rest Timer",
+                feature4Desc: "Automatic timing ensures training rhythm, with heart rate recovery assessment for more efficient training.",
+                feature5Title: "Progress Tracking",
+                feature5Desc: "Visual charts display training data, clearly showing your progress at a glance.",
+                feature6Title: "Training History",
+                feature6Desc: "Complete records of all training history, review and compare anytime, witness your growth journey.",
+                feature7Title: "Heart Rate Monitoring",
+                feature7Desc: "Real-time heart rate monitoring (supports Apple Watch and AirPods Pro 3), assess training intensity for scientific training.",
+                feature8Title: "HealthKit Sync",
+                feature8Desc: "Automatically sync training data to Apple Health App, unified health data management, building a complete health ecosystem.",
+                feature9Title: "iCloud Sync",
+                feature9Desc: "Multi-device data sync via iCloud and CloudKit, access training records anytime, anywhere.",
+                highlightsTitle: "Highlights",
+                highlightsSubtitle: "These unique features make MuscleForge your most reliable training partner",
+                highlight1Title: "⭐ Golden Moments",
+                highlight1Desc: "Mark brilliant actions in video playback, build your exclusive training video library, record every highlight moment",
+                highlight2Title: "🔥 Smart Calorie Calculation",
+                highlight2Desc: "Accurately calculate training consumption based on heart rate, age, gender, and other data for scientific energy management",
+                highlight3Title: "💓 Heart Rate Recovery Assessment",
+                highlight3Desc: "Assess training intensity and body condition through heart rate recovery speed, optimize training plans",
+                highlight4Title: "📊 Data Visualization",
+                highlight4Desc: "Intuitive chart displays make progress clear at a glance, data-driven training decisions",
+                highlight5Title: "🔄 Multi-Device Sync",
+                highlight5Desc: "Training data cloud sync, seamless switching between iPhone and iPad, training without device limitations",
+                highlight6Title: "🌍 Multi-Language Support",
+                highlight6Desc: "Supports UN official languages (Chinese, English, Spanish, French, Russian, Arabic)",
+                statsTitle: "Why Choose MuscleForge?",
+                stat1Label: "Data Privacy Protection",
+                stat2Label: "Third-Party Tracking",
+                stat3Label: "Training Plans",
+                stat4Label: "Language Support",
+                testimonialsTitle: "User Reviews",
+                testimonial1Text: "\"MuscleForge has completely changed my training approach. The video recording and golden moments feature allows me to review my movements and continuously improve. Data visualization clearly shows my progress, which is very rewarding!\"",
+                testimonial1Author: "— Experienced Fitness Enthusiast",
+                testimonial2Text: "\"As a fitness beginner, the training plan management feature has been a huge help. I can plan my week's training in advance and execute according to the plan. The heart rate monitoring feature also lets me know if my training intensity is appropriate.\"",
+                testimonial2Author: "— Fitness Beginner",
+                testimonial3Text: "\"The iCloud sync feature is amazing! I record training on my iPhone and then view detailed data analysis on my iPad. Seamless multi-device switching is very convenient. And I don't have to worry about privacy at all, all data is local.\"",
+                testimonial3Author: "— Professional Trainer",
+                ctaTitle: "Start Your Scientific Training Journey",
+                ctaSubtitle: "Whether you're pursuing muscle gain, fat loss, or strength improvement, MuscleForge is your most reliable training partner",
+                footerTagline: "Your Professional Fitness Training Assistant",
+                footerSubtitle: "Scientific Training Planning · Accurate Data Recording · Progress Tracking",
+                footerPrivacy: "Privacy Policy",
+                footerSupport: "Technical Support",
+                footerContact: "Contact Us",
+                footerCopyright: "© 2025 MuscleForge. All rights reserved."
+            }
+        };
+        
+        // 当前语言
+        let currentLang = localStorage.getItem('preferredLanguage') || 'zh';
+        
+        // 切换语言
+        function switchLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('preferredLanguage', lang);
+            
+            // 更新按钮状态
+            document.getElementById('lang-zh').classList.toggle('active', lang === 'zh');
+            document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+            
+            // 更新页面语言属性
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+            
+            // 更新所有文本
+            const t = translations[lang];
+            
+            document.title = t.title;
+            document.querySelector('.hero .subtitle').textContent = t.heroSubtitle;
+            document.querySelector('.hero .tagline').textContent = t.heroTagline;
+            
+            // Features section
+            const featuresSection = document.querySelector('.section:not(.section-alt) .section-title');
+            if (featuresSection) featuresSection.textContent = t.featuresTitle;
+            const featuresSubtitle = document.querySelector('.section:not(.section-alt) .section-subtitle');
+            if (featuresSubtitle) featuresSubtitle.textContent = t.featuresSubtitle;
+            
+            const features = document.querySelectorAll('.feature-card');
+            features[0].querySelector('h3').textContent = t.feature1Title;
+            features[0].querySelector('p').textContent = t.feature1Desc;
+            features[1].querySelector('h3').textContent = t.feature2Title;
+            features[1].querySelector('p').textContent = t.feature2Desc;
+            features[2].querySelector('h3').textContent = t.feature3Title;
+            features[2].querySelector('p').textContent = t.feature3Desc;
+            features[3].querySelector('h3').textContent = t.feature4Title;
+            features[3].querySelector('p').textContent = t.feature4Desc;
+            features[4].querySelector('h3').textContent = t.feature5Title;
+            features[4].querySelector('p').textContent = t.feature5Desc;
+            features[5].querySelector('h3').textContent = t.feature6Title;
+            features[5].querySelector('p').textContent = t.feature6Desc;
+            features[6].querySelector('h3').textContent = t.feature7Title;
+            features[6].querySelector('p').textContent = t.feature7Desc;
+            features[7].querySelector('h3').textContent = t.feature8Title;
+            features[7].querySelector('p').textContent = t.feature8Desc;
+            features[8].querySelector('h3').textContent = t.feature9Title;
+            features[8].querySelector('p').textContent = t.feature9Desc;
+            
+            // Highlights section (first section-alt)
+            const highlightsSection = document.querySelectorAll('.section-alt');
+            if (highlightsSection.length > 0) {
+                const highlightsTitle = highlightsSection[0].querySelector('.section-title');
+                const highlightsSubtitle = highlightsSection[0].querySelector('.section-subtitle');
+                if (highlightsTitle) highlightsTitle.textContent = t.highlightsTitle;
+                if (highlightsSubtitle) highlightsSubtitle.textContent = t.highlightsSubtitle;
+            }
+            
+            const highlightItems = document.querySelectorAll('.highlight-item');
+            highlightItems[0].querySelector('h4').textContent = t.highlight1Title;
+            highlightItems[0].querySelector('p').textContent = t.highlight1Desc;
+            highlightItems[1].querySelector('h4').textContent = t.highlight2Title;
+            highlightItems[1].querySelector('p').textContent = t.highlight2Desc;
+            highlightItems[2].querySelector('h4').textContent = t.highlight3Title;
+            highlightItems[2].querySelector('p').textContent = t.highlight3Desc;
+            highlightItems[3].querySelector('h4').textContent = t.highlight4Title;
+            highlightItems[3].querySelector('p').textContent = t.highlight4Desc;
+            highlightItems[4].querySelector('h4').textContent = t.highlight5Title;
+            highlightItems[4].querySelector('p').textContent = t.highlight5Desc;
+            highlightItems[5].querySelector('h4').textContent = t.highlight6Title;
+            highlightItems[5].querySelector('p').textContent = t.highlight6Desc;
+            
+            // Stats section (second section without section-alt)
+            const statsSection = document.querySelectorAll('.section:not(.section-alt)');
+            if (statsSection.length > 1) {
+                const statsTitleEl = statsSection[1].querySelector('.section-title');
+                if (statsTitleEl) statsTitleEl.textContent = t.statsTitle;
+            }
+            
+            const statLabels = document.querySelectorAll('.stat-label');
+            statLabels[0].textContent = t.stat1Label;
+            statLabels[1].textContent = t.stat2Label;
+            statLabels[2].textContent = t.stat3Label;
+            statLabels[3].textContent = t.stat4Label;
+            
+            // Testimonials section (second section-alt)
+            if (highlightsSection.length > 1) {
+                const testimonialsTitleEl = highlightsSection[1].querySelector('.section-title');
+                if (testimonialsTitleEl) testimonialsTitleEl.textContent = t.testimonialsTitle;
+            }
+            
+            const testimonials = document.querySelectorAll('.testimonial');
+            testimonials[0].querySelector('.testimonial-text').textContent = t.testimonial1Text;
+            testimonials[0].querySelector('.testimonial-author').textContent = t.testimonial1Author;
+            testimonials[1].querySelector('.testimonial-text').textContent = t.testimonial2Text;
+            testimonials[1].querySelector('.testimonial-author').textContent = t.testimonial2Author;
+            testimonials[2].querySelector('.testimonial-text').textContent = t.testimonial3Text;
+            testimonials[2].querySelector('.testimonial-author').textContent = t.testimonial3Author;
+            
+            // CTA section (last section with gradient background)
+            const ctaSection = document.querySelector('.section[style*="gradient"]');
+            if (ctaSection) {
+                const ctaTitleEl = ctaSection.querySelector('.section-title');
+                const ctaSubtitleEl = ctaSection.querySelector('.section-subtitle');
+                if (ctaTitleEl) ctaTitleEl.textContent = t.ctaTitle;
+                if (ctaSubtitleEl) ctaSubtitleEl.textContent = t.ctaSubtitle;
+            }
+            
+            const footerP = document.querySelectorAll('.footer p');
+            if (footerP.length > 0) {
+                footerP[0].textContent = t.footerTagline;
+            }
+            if (footerP.length > 1) {
+                footerP[1].textContent = t.footerSubtitle;
+            }
+            
+            const footerLinks = document.querySelectorAll('.footer-links a');
+            footerLinks[0].textContent = t.footerPrivacy;
+            footerLinks[1].textContent = t.footerSupport;
+            footerLinks[2].textContent = t.footerContact;
+            
+            const footerCopyright = document.querySelectorAll('.footer p');
+            if (footerCopyright.length > 3) {
+                footerCopyright[footerCopyright.length - 1].textContent = t.footerCopyright;
+            }
+        }
+        
+        // 页面加载时应用保存的语言
+        document.addEventListener('DOMContentLoaded', function() {
+            if (currentLang === 'en') {
+                switchLanguage('en');
+            }
+        });
+    </script>
+</body>
+</html>
